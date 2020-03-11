@@ -24,7 +24,7 @@ syn region ygEcho
 
 syn region ygLocal
   \ matchgroup=ygLocalCmd
-  \ start="\<LRUN!\?\|LFAILED?\|LSUCCEED?\|LTEMPLATE\|LCHANGED?"
+  \ start="\<LRUN!\?\|LFAILED?\|LSUCCEED?"
   \ skip="\\$"
   \ matchgroup=NONE
   \ end="\n"
@@ -38,7 +38,7 @@ syn region ygInclude
 
 syn region ygRemote
   \ matchgroup=ygRemoteCmd
-  \ start="\<RUN!\?\|FAILED?\|SUCCEED?\|COPY\|FETCH\|TEMPLATE\|CHANGED?\|CONNECT\|RECONNECT\|DISCONNECT"
+  \ start="\<RUN!\?\|FAILED?\|SUCCEED?\|SYNC\|FETCH\|CONNECT\|RECONNECT\|DISCONNECT"
   \ matchgroup=NONE
   \ skip="\\$"
   \ end="\n"
