@@ -9,8 +9,7 @@ if exists("b:current_syntax")
 endif
 
 syn match ygReference "\<@[-/[:alnum:]_]\+\(.stdout\)\?"
-syn match ygVar "\$[/[:alpha:]]\+[./[:alnum:]_]\+"
-syn match ygVar "\${[/[:alpha:]]\+[./[:alnum:]_]\+}"
+syn match ygVar "\${[/[:alpha:]]\+[.:/[:alnum:]_]\+}"
 
 syn region ygComment start="#" end="\n"
 
