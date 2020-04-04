@@ -9,7 +9,9 @@ if exists("b:current_syntax")
 endif
 
 syn match ygReference "\<@[-/[:alnum:]_]\+\(.stdout\)\?"
-syn match ygVar "\${[/[:alpha:]]\+[.:/[:alnum:]_]\+}"
+
+syn region ygJinjaTag start=/{%-\?/ end=/-\?%}/ containedin=ygEcho,ygLocal,ygInclude,ygRemote
+syn region ygJinjaVar start=/{{-\?/ end=/-\?}}/ containedin=ygEcho,ygLocal,ygInclude,ygRemote
 
 syn region ygComment start="#" end="\n"
 
@@ -19,7 +21,6 @@ syn region ygEcho
   \ skip="\\$"
   \ matchgroup=NONE
   \ end="\n"
-  \ contains=ygVar
 
 syn region ygLocal
   \ matchgroup=ygLocalCmd
@@ -27,7 +28,7 @@ syn region ygLocal
   \ skip="\\$"
   \ matchgroup=NONE
   \ end="\n"
-  \ contains=ygVar,ygReference
+  \ contains=ygReference
 
 syn region ygInclude
   \ matchgroup=ygIncludeCmd
@@ -41,7 +42,7 @@ syn region ygRemote
   \ matchgroup=NONE
   \ skip="\\$"
   \ end="\n"
-  \ contains=ygVar,ygReference
+  \ contains=ygReference
 
 syn region ygTag
   \ matchgroup=ygTagCmd
@@ -60,7 +61,8 @@ hi def link ygRemote                    Normal
 hi def link ygTagCmd                    Tag
 hi def link ygTag                       SpecialChar
 hi def link ygReference                 Include
-hi def link ygVar                       Include
+hi def link ygJinjaVar                  Include
+hi def link ygJinjaTag                  Include
 hi def link ygComment                   Comment
 
 let b:current_syntax = "yaggy"
