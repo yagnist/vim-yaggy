@@ -38,7 +38,7 @@ syn region ygInclude
 
 syn region ygRemote
   \ matchgroup=ygRemoteCmd
-  \ start="\<RUN!\?\|FAILED?\|SUCCEED?\|SYNC\|FETCH\|CONNECT\|RECONNECT\|DISCONNECT"
+  \ start="\<RUN!\?\|FAILED?\|SUCCEED?\|SYNC\|FETCH\|CONNECT\|RECONNECT?\?\|DISCONNECT"
   \ matchgroup=NONE
   \ skip="\\$"
   \ end="\n"
